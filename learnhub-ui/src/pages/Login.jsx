@@ -62,7 +62,7 @@ export default function Login() {
             ))}
           </ul>
           <p className="mt-12 text-xs text-blue-300/70">
-            DGTIC-UNAM
+            Diplomados Profesionales DGTIC-UNAM - by hxa.dev
           </p>
         </div>
       </div>
