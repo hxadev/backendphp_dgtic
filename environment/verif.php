@@ -41,13 +41,13 @@ try {
         sprintf('mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4',
             getenv('DB_HOST') ?: 'db',
             getenv('DB_PORT') ?: '3306',
-            getenv('DB_NAME') ?: 'techstore'),
-        getenv('DB_USER') ?: 'techstore',
-        getenv('DB_PASSWORD') ?: 'techstore',
+            getenv('DB_NAME') ?: 'learnhub'),
+        getenv('DB_USER') ?: 'learnhub',
+        getenv('DB_PASSWORD') ?: 'learnhub',
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
-    $n = (int) $pdo->query('SELECT COUNT(*) FROM productos')->fetchColumn();
-    $r[] = ['MySQL', "$n productos", $n > 0 ? 'ok' : 'aviso'];
+    $n = (int) $pdo->query('SELECT COUNT(*) FROM courses')->fetchColumn();
+    $r[] = ['MySQL', "$n cursos", $n > 0 ? 'ok' : 'aviso'];
 } catch (PDOException $e) {
     $r[] = ['MySQL', $e->getMessage(), 'falla'];
 }

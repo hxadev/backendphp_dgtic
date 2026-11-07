@@ -1,7 +1,6 @@
 -- ════════════════════════════════════════════════════════════
 -- LEARNHUB — DDL
 -- Plataforma de Cursos Online
--- Módulo 3: Persistencia con Hibernate | Ed. 20 | DGTIC-UNAM
 -- Instructor: Alfonso Hernández Xochipa | hxadev.tech
 -- ════════════════════════════════════════════════════════════
 

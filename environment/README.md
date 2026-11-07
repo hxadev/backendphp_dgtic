@@ -60,7 +60,7 @@ docker compose logs -f web           # errores de PHP y Apache
 docker compose exec web bash         # terminal dentro del contenedor
 docker compose exec web php -v
 docker compose exec web composer install
-docker compose exec db mysql -u techstore -ptechstore techstore
+docker compose exec db mysql -u learnhub -plearnhub learnhub
 
 docker compose down                  # detener
 docker compose down -v               # detener y borrar la base de datos
@@ -79,14 +79,14 @@ docker compose --profile debug up -d web_debug   # http://localhost:8099
 Puertos y credenciales están en `.env`. Si un puerto está ocupado, cámbialo
 ahí y vuelve a ejecutar `docker compose up -d`.
 
-Credenciales de la base: `techstore` / `techstore`.
+Credenciales de la base: `learnhub` / `learnhub`.
 
 Usuarios del panel, a partir de la sesión 3:
 
 | Correo | Contraseña | Rol |
 |---|---|---|
-| admin@techstore.mx | `Admin123!` | admin |
-| editor@techstore.mx | `Editor123!` | editor |
+| admin@learnhub.mx | `Admin123!` | admin |
+| editor@learnhub.mx | `Editor123!` | editor |
 
 ---
 

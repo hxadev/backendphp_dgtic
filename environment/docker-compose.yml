@@ -16,9 +16,9 @@ services:
       APACHE_DOCUMENT_ROOT: /var/www/html
       DB_HOST: db
       DB_PORT: 3306
-      DB_NAME: ${DB_NAME:-techstore}
-      DB_USER: ${DB_USER:-techstore}
-      DB_PASSWORD: ${DB_PASSWORD:-techstore}
+      DB_NAME: ${DB_NAME:-learnhub}
+      DB_USER: ${DB_USER:-learnhub}
+      DB_PASSWORD: ${DB_PASSWORD:-learnhub}
     depends_on:
       db:
         condition: service_healthy
@@ -39,9 +39,9 @@ services:
       APACHE_DOCUMENT_ROOT: /var/www/html/public
       DB_HOST: db
       DB_PORT: 3306
-      DB_NAME: ${DB_NAME:-techstore}
-      DB_USER: ${DB_USER:-techstore}
-      DB_PASSWORD: ${DB_PASSWORD:-techstore}
+      DB_NAME: ${DB_NAME:-learnhub}
+      DB_USER: ${DB_USER:-learnhub}
+      DB_PASSWORD: ${DB_PASSWORD:-learnhub}
     depends_on:
       db:
         condition: service_healthy
@@ -55,9 +55,9 @@ services:
       - "${MYSQL_PORT:-3307}:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
-      MYSQL_DATABASE: ${DB_NAME:-techstore}
-      MYSQL_USER: ${DB_USER:-techstore}
-      MYSQL_PASSWORD: ${DB_PASSWORD:-techstore}
+      MYSQL_DATABASE: ${DB_NAME:-learnhub}
+      MYSQL_USER: ${DB_USER:-learnhub}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-learnhub}
     volumes:
       - db_data:/var/lib/mysql
       # Solo se ejecuta cuando el volumen se crea por primera vez
@@ -78,8 +78,8 @@ services:
       - "${PHPMYADMIN_PORT:-8081}:80"
     environment:
       PMA_HOST: db
-      PMA_USER: ${DB_USER:-techstore}
-      PMA_PASSWORD: ${DB_PASSWORD:-techstore}
+      PMA_USER: ${DB_USER:-learnhub}
+      PMA_PASSWORD: ${DB_PASSWORD:-learnhub}
       UPLOAD_LIMIT: 64M
     depends_on:
       db:
@@ -102,9 +102,9 @@ services:
       APACHE_DOCUMENT_ROOT: /var/www/html
       DB_HOST: db
       DB_PORT: 3306
-      DB_NAME: ${DB_NAME:-techstore}
-      DB_USER: ${DB_USER:-techstore}
-      DB_PASSWORD: ${DB_PASSWORD:-techstore}
+      DB_NAME: ${DB_NAME:-learnhub}
+      DB_USER: ${DB_USER:-learnhub}
+      DB_PASSWORD: ${DB_PASSWORD:-learnhub}
       XDEBUG_MODE: debug
     extra_hosts:
       - "host.docker.internal:host-gateway"
