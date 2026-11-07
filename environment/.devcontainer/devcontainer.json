@@ -1,0 +1,26 @@
+// Autor: Alfonso Hernández Xochipa
+{
+  "name": "env_php_dgtic",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "web",
+  "workspaceFolder": "/var/www/html",
+  "runServices": ["web", "web_mvc", "db", "phpmyadmin"],
+  "forwardPorts": [80, 8081],
+  "portsAttributes": {
+    "80": { "label": "Sitio" },
+    "8081": { "label": "phpMyAdmin" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "xdebug.php-debug",
+        "mikestead.dotenv"
+      ],
+      "settings": {
+        "files.eol": "\n"
+      }
+    }
+  },
+  "remoteUser": "www-data"
+}

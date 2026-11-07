@@ -1,0 +1,9 @@
+# Autor: Alfonso Hernández Xochipa
+
+.git
+.github
+vendor
+node_modules
+storage/logs
+*.md
+*.zip

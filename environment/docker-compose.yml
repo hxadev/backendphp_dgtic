@@ -1,0 +1,116 @@
+# Autor: Alfonso Hernández Xochipa
+
+services:
+
+  web:
+    build:
+      context: ./docker/php
+      target: base
+    image: dgtic-php:8.5.12
+    container_name: dgtic_web
+    ports:
+      - "${WEB_PORT:-8080}:80"
+    volumes:
+      - ./:/var/www/html:z
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME:-techstore}
+      DB_USER: ${DB_USER:-techstore}
+      DB_PASSWORD: ${DB_PASSWORD:-techstore}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Misma imagen y mismos archivos, con la raíz pública en public/
+  web_mvc:
+    build:
+      context: ./docker/php
+      target: base
+    image: dgtic-php:8.5.12
+    container_name: dgtic_web_mvc
+    ports:
+      - "${WEB_MVC_PORT:-8090}:80"
+    volumes:
+      - ./:/var/www/html:z
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME:-techstore}
+      DB_USER: ${DB_USER:-techstore}
+      DB_PASSWORD: ${DB_PASSWORD:-techstore}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.4
+    container_name: dgtic_db
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "${MYSQL_PORT:-3307}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${DB_NAME:-techstore}
+      MYSQL_USER: ${DB_USER:-techstore}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-techstore}
+    volumes:
+      - db_data:/var/lib/mysql
+      # Solo se ejecuta cuando el volumen se crea por primera vez
+      - ./database:/docker-entrypoint-initdb.d:ro,z
+    healthcheck:
+      test: ["CMD-SHELL",
+             "mysqladmin ping -h 127.0.0.1 -u root -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 40s
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin:5.2
+    container_name: dgtic_pma
+    ports:
+      - "${PHPMYADMIN_PORT:-8081}:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: ${DB_USER:-techstore}
+      PMA_PASSWORD: ${DB_PASSWORD:-techstore}
+      UPLOAD_LIMIT: 64M
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # docker compose --profile debug up -d web_debug
+  web_debug:
+    profiles: ["debug"]
+    build:
+      context: ./docker/php
+      target: debug
+    image: dgtic-php:8.5.12-debug
+    container_name: dgtic_web_debug
+    ports:
+      - "${WEB_DEBUG_PORT:-8099}:80"
+    volumes:
+      - ./:/var/www/html:z
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME:-techstore}
+      DB_USER: ${DB_USER:-techstore}
+      DB_PASSWORD: ${DB_PASSWORD:-techstore}
+      XDEBUG_MODE: debug
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db_data:
