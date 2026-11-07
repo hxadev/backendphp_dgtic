@@ -66,7 +66,7 @@ export default function Sidebar({ collapsed, onNavigate }) {
           <span className="text-xs text-slate-500">🇲🇽</span>
         ) : (
           <>
-            <p className="text-xs font-medium text-slate-400">DGTIC-UNAM · Ed. 20</p>
+            <p className="text-xs font-medium text-slate-400">DGTIC-UNAM </p>
             <p className="mt-0.5 text-xs text-slate-500">hxadev.tech</p>
           </>
         )}

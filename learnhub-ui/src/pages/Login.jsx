@@ -62,7 +62,7 @@ export default function Login() {
             ))}
           </ul>
           <p className="mt-12 text-xs text-blue-300/70">
-            Módulo 3: Persistencia con Hibernate · Diplomado de Java · DGTIC-UNAM
+            DGTIC-UNAM
           </p>
         </div>
       </div>

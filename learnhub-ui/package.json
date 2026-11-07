@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "LearnHub — UI de plataforma de cursos online. Módulo 3: Persistencia con Hibernate, Diplomado de Java DGTIC-UNAM.",
+  "description": "LearnHub — UI de plataforma de cursos online. Plataforma práctica para diplomados profesionales DGTIC-UNAM by hxa.dev",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
