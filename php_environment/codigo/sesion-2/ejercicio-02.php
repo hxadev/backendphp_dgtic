@@ -38,7 +38,7 @@ function cursosVisibles(array $cursos, ?int $categoriaId = null): array
 {
     // TODO
      // id:5, id:10
-    array_values(array_filter()): //0....n
+    //array_values(array_filter());//0....n
     return [];
 }
 
@@ -91,11 +91,11 @@ if (PHP_SAPI !== 'cli') {
     $formato=$_GET["formato"]??"json";
 
     if($formato==="json"){
-        json_encode();
+        //json_encode();
         exit;
     }
 
-    imprimirHTML();
+    //imprimirHTML();
 
 }
 
