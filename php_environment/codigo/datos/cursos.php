@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+//snake_case palabra1_palabra2_pabra3
+//cammelCase palabra1Palabra2Palabra3
+
 return [
     [
         'id'               => 1,
@@ -10,7 +13,7 @@ return [
         'price'            => "2499.0",
         'duration'         => 40,
         'active'           => true,
-        'created_at'       => '2025-11-15T10:00:00',
+        'created_at'       => '2025-11-15T10:00:00', 
         'updated_at'       => '2026-01-10T09:00:00',
         'ranking'          => 5,
         'level_id'         => 1,
