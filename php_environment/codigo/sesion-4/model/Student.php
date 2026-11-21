@@ -3,6 +3,11 @@
 require_once __DIR__ ."/Parseable.php";
 require_once __DIR__ ."/Printable.php";
 
+/**
+ * 
+ * Implementacion de interfaces
+ * En php se implementa 1--implements--*
+*/
 class Student implements Parseable, Printable{
     public function toPayload(): array{
         return [];

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 
+ * PHP utiliza Herencia Simple 1-extends-1
+ */
 class Workshop extends Curso{
    public function dinamicaWorkshop():void{
 
