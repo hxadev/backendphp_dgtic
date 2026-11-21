@@ -1,0 +1,49 @@
+// Tipos de Datos a manipular
+
+// Maestros -> Datos que no cambian constantemente -> Catalogos de Datos
+// Transaccionales -> Datos que sufren de un cambio o transaccionalidad constante. Creacion, Actualizacion y Eliminacion
+
+
+
+// POO
+
+// Abstraccion -> Como es que representamos un requerimiento funcional en objetos
+//  - Clase Curso
+//. - Clase Estudiante
+//  - Clase Enrolamiento
+//  - Clase NivelDificultad
+
+// Encapsulacion
+// Polimorfismo
+// Herencia
+
+// Clase Laptop -> objeto -> instancia de clase(nacio a partir de una clase)
+// --- Atributos
+// string color = "gris"
+// float tamaño = 30.05
+// float peso   = 3
+// string procesador = "i5" 
+
+// --- Metodos / Funciones
+// procesarInstrucciones(): string
+// almacenarArchivos(): void
+// presentaInformacion(): string
+
+
+// Tipos de Datos
+// POO      Modelo Relacional
+
+/**
+ * int      Integer
+ * float    Double, Decimal
+ * bool     tinyint() 1 - 0
+ * string   varchar, char, text
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Object ->  X Ninguno -> 🥲 -> Eloquent ORM
+ */
