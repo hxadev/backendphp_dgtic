@@ -8,8 +8,8 @@
 // ============================================================
 import { db } from '../mocks';
 
-export const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
-export const USE_MOCKS = true; // Cambiar a false cuando el backend esté listo
+export const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:9010/api';
+export const USE_MOCKS = false; // Cambiar a false cuando el backend esté listo
 
 // Latencia simulada para que la UI muestre estados de carga realistas
 const MOCK_DELAY_MS = 300;

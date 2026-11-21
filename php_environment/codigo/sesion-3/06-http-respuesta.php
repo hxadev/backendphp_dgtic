@@ -17,6 +17,7 @@ function getErrorResponse(int $errorCode, string $message)
     ];
 }
 
+
 /*elseif(isset($filtro) && (isset($idCurso) || isset($categoria) || isset($ranking))){
     http_response_code(202); // Accepted
     echo json_encode($cursos);
